@@ -8,9 +8,25 @@ def main():
     frequencies = list(map(int, f.readlines()))
     return frequencies
 
+
 def part1():
     frequencies = main()
     print(sum(frequencies))
+
+
+def part2():
+    frequencies = main()
+    sums_seen = set()
+    sum_so_far = 0
+    sums_seen.add(sum_so_far)
+    while 1:
+        for freq in frequencies:
+            sum_so_far += freq
+            if sum_so_far in sums_seen:
+                print(sum_so_far)
+                return
+
+            sums_seen.add(sum_so_far)
 
 
 def run():
