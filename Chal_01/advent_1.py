@@ -4,7 +4,14 @@ https://adventofcode.com/2018/day/1
 """
 
 def main():
-    pass
+    f = open("advent_1_input.txt")
+    frequencies = list(map(int, f.readlines()))
+    return frequencies
+
+def part1():
+    frequencies = main()
+    print(sum(frequencies))
+
 
 def run():
     chall = int(input("Please enter either 1 or 2 for the challenges: "))
@@ -15,3 +22,5 @@ def run():
     else:
         print("You need to enter either 1 or 2")
         exit(1)
+
+run()
