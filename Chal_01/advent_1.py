@@ -5,6 +5,9 @@ https://adventofcode.com/2018/day/1
 
 def main():
     f = open("advent_1_input.txt")
+    # take the string numbers in the
+    # input, map them to integers and
+    # convert the map object into a list
     frequencies = list(map(int, f.readlines()))
     return frequencies
 
