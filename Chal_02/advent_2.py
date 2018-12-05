@@ -27,6 +27,28 @@ def part1():
     print(num_twos*num_threes)
 
 
+def part2():
+    f = open("advent_2_input.txt")
+    box_ids = [line.strip() for line in f.readlines()]
+    stop = False
+    for idx, b_id in enumerate(box_ids[:-1]):
+        for other_b_id in box_ids[idx+1:]:
+            num_different = 0
+            idx_different = -1
+            for i, letter in enumerate(b_id):
+                if b_id[i] != other_b_id[i]:
+                    num_different += 1
+                    idx_different = i
+
+            if num_different == 1:
+                print(b_id[:idx_different] + b_id[idx_different+1:])
+                stop = True
+                break
+
+        if stop:
+            break
+
+
 def run():
     chall = int(input("Please enter either 1 or 2 for the challenges: "))
     if chall == 1:
