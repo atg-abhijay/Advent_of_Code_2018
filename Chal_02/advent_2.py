@@ -3,8 +3,28 @@ URL for challenge:
 https://adventofcode.com/2018/day/2
 """
 
-def main():
-    pass
+def part1():
+    f = open("advent_2_input.txt")
+    num_twos, num_threes = 0, 0
+    for box_id in f.readlines():
+        letter_count = {}
+        two_found, three_found = False, False
+        for letter in box_id:
+            if letter in letter_count:
+                letter_count[letter] += 1
+            else:
+                letter_count[letter] = 1
+
+        for count in letter_count.values():
+            if count == 2 and not two_found:
+                num_twos += 1
+                two_found = True
+
+            if count == 3 and not three_found:
+                num_threes += 1
+                three_found = True
+
+    print(num_twos*num_threes)
 
 
 def run():
